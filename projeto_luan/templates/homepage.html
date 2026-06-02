@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block titulo %}
+        homepage
+        {% endblock %}
+    </title>
+</head>
+<body>
+{% block body %}
+<h1>Meu site</h1>
+<a href="{{ url_for('perfil', usuario = 'luan' ) }}">perfil</a>
+{% endblock %}
+</body>
+</html>
