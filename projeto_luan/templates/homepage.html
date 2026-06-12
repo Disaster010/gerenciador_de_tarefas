@@ -12,6 +12,24 @@
 {% block body %}
 <h1>Meu site</h1>
 <a href="{{ url_for('perfil', usuario = 'luan' ) }}">perfil</a>
+<a href="{{url_for('criarconta')}}">Criar Conta</a>
+
+<form method="POST">
+
+    {% block formulario %}
+
+  {{ form.csrf_token }}
+
+{{form.email.label}}
+    {{form.email() }}
+
+    {{form.senha.label}}
+    {{form.senha()}}
+
+    {{form.botao_confirmacao() }}
+
+    {% endblock %}
+</form>
 {% endblock %}
 </body>
 </html>
