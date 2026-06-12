@@ -1,8 +1,6 @@
-from projeto_luan import database
+from projeto_luan import database, login_manager
 from datetime import datetime
 from flask_login import UserMixin
-
-
 
 class Usuario(database.Model, UserMixin):
     id = database.Column(database.Integer, primary_key=True)
@@ -11,10 +9,9 @@ class Usuario(database.Model, UserMixin):
     senha = database.Column(database.String, nullable=False)
     fotos = database.relationship("Foto", backref="usuario", lazy=True)
 
-@login_manager.user_loader
-def load_usuario(id_usuario):
-    return Usuario.query.get(int(id_usuario))
-
+    @login_manager.user_loader
+    def load_usuario(id_usuario):
+        return Usuario.query.get(int(id_usuario))
 
 class Foto(database.Model):
     id = database.Column(database.Integer, primary_key=True)
