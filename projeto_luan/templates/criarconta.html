@@ -8,6 +8,7 @@ Criar conta
 <a href="url_for('homepage')">Login</a>
 
 {% block formulario %}
+<form method="POST">
 
 {{form.csrf_token}}
 
@@ -24,6 +25,6 @@ Criar conta
 {{form.confirmacao_senha() }}
 
 {{form.botao_confirmacao() }}
-
+</form>
 {% endblock %}
 {% endblock %}
