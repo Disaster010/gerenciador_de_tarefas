@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>
         {% block titulo %}
-        homepage
+        Homepage
         {% endblock %}
     </title>
 </head>
 <body>
 {% block body %}
-<h1>Meu site</h1>
-<a href="{{ url_for('perfil', usuario = 'luan' ) }}">perfil</a>
-<a href="{{url_for('criarconta')}}">Criar Conta</a>
+<h1>Meu site com HTML</h1>
+
+<a href="{{ url_for ('criarconta')}}">Criar Conta</a>
+
 
 {% block formulario %}
+
 <form method="POST">
 
 
-  {{ form.csrf_token }}
+
+    {{ form.csrf_token }}
 
 {{form.email.label}}
     {{form.email() }}
@@ -27,6 +30,7 @@
     {{form.senha()}}
 
     {{form.botao_confirmacao() }}
+
 
 </form>
 {% endblock %}
